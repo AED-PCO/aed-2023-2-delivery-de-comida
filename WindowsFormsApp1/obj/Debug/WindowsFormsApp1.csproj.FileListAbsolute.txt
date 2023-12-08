@@ -1,0 +1,12 @@
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CADASTRO.resources
+C:\Users\gpsca\Documents\trabalho aed\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form3.resources
