@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,17 @@ namespace WindowsFormsApp1.Classes
         public string Cidade { get; set; }
 
         public User() { }
+
+        public string toString()
+        {
+            string result = string.Empty;
+            Type myType = this.GetType();
+            foreach (PropertyInfo prop in myType.GetProperties())
+            {
+                result += $"{prop.Name}={prop.GetValue(this)};";
+            }
+            return result;
+        }
 
     }
 }

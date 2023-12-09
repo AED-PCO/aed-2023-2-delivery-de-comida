@@ -68,6 +68,9 @@ namespace WindowsFormsApp1.Classes
             User save = first.data;
             first = first.next;
             first.prev = null;
+
+            count--;
+
             return save;
         }
 
@@ -78,6 +81,9 @@ namespace WindowsFormsApp1.Classes
             User save = last.data;
             last = last.prev;
             last.next = null;
+
+            count--;
+
             return save;
         }
 
@@ -106,6 +112,18 @@ namespace WindowsFormsApp1.Classes
                 current = current.next;
             }
             return null;
+        }
+
+        public string toString()
+        {
+            string result = String.Empty;
+            UserNode current = first;
+            while (current != null)
+            {
+                result += $"{current.data.toString()}\n";
+                current = current.next;
+            }
+            return result;
         }
     }
 }
