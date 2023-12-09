@@ -31,6 +31,8 @@ namespace WindowsFormsApp1.Classes
 
             if (logginUser == null) { return 2; }
 
+            if (PasswordHash.Verify(password,logginUser.Senha) == false) { return 1; }
+
             return 0;
         }
 
@@ -39,9 +41,27 @@ namespace WindowsFormsApp1.Classes
             return 0;
         }
 
+        /* Retorno da função de login
+         * 0 -> Usuário cadastrado com sucesso
+         * 1 -> Email já cadastrado
+        */
         public int Cadastrar(User newUser)
         {
+            if (AllUsers.FindByEmail(newUser.Email) != null) { return 1; }
+
+            AllUsers.AddLast(newUser);
+
+            this.SaveAllToFile();
+
             return 0;
+        }
+
+        private void SaveAllToFile()
+        {
+            using (StreamWriter file_writer = new StreamWriter(_file_path))
+            {
+                file_writer.WriteLine(AllUsers.toString());
+            }
         }
 
         private void FetchAllUsers()
@@ -60,6 +80,8 @@ namespace WindowsFormsApp1.Classes
 
         private void SetUserData(string uData)
         {
+            if (uData == String.Empty) { return; }
+
             Type userType = typeof(User);
             User newUser = new User();
             string[] tuplas = uData.Split(';');

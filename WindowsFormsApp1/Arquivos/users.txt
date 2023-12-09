@@ -1,1 +1,3 @@
-Nome=Joao;Senha=123;Celular=31999999999;Email=j@.com;Rua=;Numero=;Bairro=;Cidade=
+Nome=Leandra;Senha=$2a$11$PViqDXBiQOYqTVJ52ArJhOnxwYOgu.cdFXyKF38XfQGvTh8khbmSi;Celular=319993884704;Email=leeleza2003@hotmail.com;Rua=Zelinda da Silva;Numero=116;Bairro=Novo Eldorado;Cidade=Contagem;
+Nome=Joao Vitor;Senha=$2a$11$01661m/OZpBLmT0rNq9aQeQ9TCt5/e.Ada3xHZBAfD7B3ToqM9xTe;Celular=31984844470;Email=joaovsouzafranca@gmail.com;Rua=Courupita;Numero=1424;Bairro=Eldorado;Cidade=Contagem;
+
