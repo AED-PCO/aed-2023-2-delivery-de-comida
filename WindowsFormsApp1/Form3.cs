@@ -31,5 +31,26 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form4 TelaAcompanhamentos = new Form4();
+            TelaAcompanhamentos.ShowDialog();
+        }
     }
 }
