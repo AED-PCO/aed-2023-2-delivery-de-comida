@@ -62,7 +62,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\OrderLinkedList.cs" />
+    <Compile Include="Classes\OrderManager.cs" />
+    <Compile Include="Classes\Pedido.cs" />
+    <Compile Include="Classes\ProductLinkedList.cs" />
+    <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\PasswordHash.cs" />
+    <Compile Include="Classes\ProductManager.cs" />
+    <Compile Include="Classes\ProductTree.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\UserLinkedList.cs" />
     <Compile Include="Classes\UserManager.cs" />

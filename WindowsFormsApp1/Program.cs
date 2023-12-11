@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Classes;
 
 namespace WindowsFormsApp1
 {
@@ -19,7 +20,13 @@ namespace WindowsFormsApp1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ApplicationExit += OnAppExit;
             Application.Run(new Form1());
+        }
+
+        private static void OnAppExit(object sender, EventArgs e)
+        {
+            OrderManager.SaveAllOrders();
         }
     }
 }
