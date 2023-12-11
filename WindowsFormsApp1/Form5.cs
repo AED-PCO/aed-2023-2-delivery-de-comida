@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using WindowsFormsApp1.Classes;
 
 namespace WindowsFormsApp1
 {
@@ -15,9 +17,53 @@ namespace WindowsFormsApp1
         public Form5()
         {
             InitializeComponent();
+            Gerarpedido();
+            Produtos();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Gerarpedido()
+        {
+            listView1.Columns.Add("Codigo", 25).TextAlign = HorizontalAlignment.Center;
+            listView1.Columns.Add("Descrição", 115);
+            listView1.Columns.Add("UN", 25).TextAlign= HorizontalAlignment.Center;
+            listView1.Columns.Add("Valor", 45).TextAlign = HorizontalAlignment.Right;
+            
+            listView1.View = View.Details;
+            listView1.GridLines = true;
+            listView1.FullRowSelect = true;
+            listView1.MultiSelect = true;   
+        }
+
+        public void Produtos()
+        {
+            Pedido pedido = OrderManager.GetPedidoByEmail(UserManager.LoggedUserEmail);
+
+            Product produto = pedido.Produtos.GetNext();
+
+            while (produto != null)
+            {
+                string[] item = new string[4];
+
+                item[0] = produto.Id.ToString();
+                item[1] = produto.Nome;
+                item[2] = produto.Quantidade.ToString();
+                item[3] = produto.Preco.ToString("0.00");
+                listView1.Items.Add(new ListViewItem(item));
+
+                produto = pedido.Produtos.GetNext();
+            }
+
+
+        }
+
+        
+
+        private void preco(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Finalizar(object sender, EventArgs e)
         {
 
         }
