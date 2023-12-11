@@ -12,6 +12,8 @@ namespace WindowsFormsApp1.Classes
     internal class UserManager
     {
 
+        public static string LoggedUserEmail = String.Empty;
+
         private static UserLinkedList AllUsers;
 
         private string _file_path = Program.root_path + "\\Arquivos\\users.txt";
@@ -33,11 +35,14 @@ namespace WindowsFormsApp1.Classes
 
             if (PasswordHash.Verify(password,logginUser.Senha) == false) { return 1; }
 
+            LoggedUserEmail = logginUser.Email;
+
             return 0;
         }
 
         public int Logout()
         {
+            LoggedUserEmail = String.Empty;
             return 0;
         }
 
