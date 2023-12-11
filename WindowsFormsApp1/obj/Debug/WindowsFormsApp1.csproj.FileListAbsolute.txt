@@ -58,3 +58,4 @@ C:\Users\carol\trabalho aed\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\D
 C:\Users\carol\trabalho aed\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\carol\trabalho aed\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form4.resources
 C:\Users\João França\Desktop\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form4.resources
+C:\Users\carol\trabalho aed\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form5.resources
