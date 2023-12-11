@@ -20,14 +20,10 @@ namespace WindowsFormsApp1.Classes
         public string Imagem { get; set; }
 
         private Image objImage;
-        private int Quantidade = 0;
+
+        public int Quantidade = 0;
 
         public Product() { }
-
-        public void SetQuantidade(int quantidade)
-        {
-            this.Quantidade = quantidade;
-        }
 
         public void SetImageObjectFromFile(string file_name = "")
         {
@@ -89,6 +85,17 @@ namespace WindowsFormsApp1.Classes
         public Image GetImageObject()
         {
             return this.objImage;
+        }
+
+        public Product Copy()
+        {
+            Product product = new Product();
+            product.Id = this.Id;
+            product.Nome = this.Nome;
+            product.Preco = this.Preco;
+            product.Imagem = this.Imagem;
+            product.objImage = this.objImage;
+            return product;
         }
     }
 }

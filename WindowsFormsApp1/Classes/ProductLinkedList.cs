@@ -144,10 +144,13 @@ namespace WindowsFormsApp1.Classes
             Node current = first;
             while (current != null)
             {
-                result += current.Data.Id + ",";
+                result += current.Data.Id + "q" + current.Data.Quantidade + ",";
                 current = current.Next;
             }
-            result.Remove(result.Length - 1);
+            if (result.Length > 0)
+            {
+                result = result.Remove(result.Length - 1);
+            }
             return result;
         }
     }

@@ -13,8 +13,11 @@ namespace WindowsFormsApp1.Classes
         public static int MaxProductAmount = 8;
         public static int MaxExtrasAmount = 10;
 
-        private static Product[] AllProducts;
-        private static Product[] AllExtras;
+        //private static Product[] AllProducts;
+        //private static Product[] AllExtras;
+
+        private static ProductTree ProductsTree;
+        private static ProductTree ExtrasTree;
 
         private static string normal_path = Program.root_path + "\\Arquivos\\produtos.txt";
         private static string extras_path = Program.root_path + "\\Arquivos\\extras.txt";
@@ -31,80 +34,98 @@ namespace WindowsFormsApp1.Classes
 
         private static void FetchExtras()
         {
-            if (AllExtras != null) { return; }
+            if (ExtrasTree != null) { return; }
 
             string[] productsData = File.ReadAllLines(extras_path);
 
-            AllExtras = new Product[MaxExtrasAmount];
+            //AllExtras = new Product[MaxExtrasAmount];
+            ExtrasTree = new ProductTree();
 
             int index = 0;
             foreach (var data in productsData)
             {
-                if (index >= AllExtras.Length) { break; }
+                if (index >= MaxExtrasAmount) { break; }
 
                 Product novo_obj = new Product();
-
                 novo_obj.FillByString(data);
+                ExtrasTree.Insert(novo_obj);
 
-                AllExtras[index++] = novo_obj;
+                //AllExtras[index++] = novo_obj;
             }
         }
 
         private static void FetchProducts()
         {
-            if (AllProducts != null) { return; }
+            //if (AllProducts != null) { return; }
+            if (ProductsTree != null) { return; }   
+
+            ProductsTree = new ProductTree();
 
             string[] productsData = File.ReadAllLines(normal_path);
 
-            AllProducts = new Product[MaxProductAmount];
+            //AllProducts = new Product[MaxProductAmount];
 
             int index = 0;
             foreach (var data in productsData)
             {
-                if (index >= AllProducts.Length) { break; }
+                if (index >= MaxProductAmount) { break; }
 
                 Product novo_obj = new Product();
-
                 novo_obj.FillByString(data);
+                ProductsTree.Insert(novo_obj);
 
-                AllProducts[index++] = novo_obj;
+                //AllProducts[index++] = novo_obj;
             }
         }
 
         public static Product[] GetAllProducts()
         {
-            if (AllProducts == null) { FetchProducts(); }
-            return (Product[])AllProducts.Clone();
+            //if (AllProducts == null) { FetchProducts(); }
+            if (ProductsTree == null) { FetchProducts(); }
+            return ProductsTree.GetProductsOrdered();
+            //return (Product[])AllProducts.Clone();
         }
 
         public static Product[] GetAllExtras()
         {
-            if (AllExtras == null) { FetchExtras(); }
-            return (Product[])AllExtras.Clone();
+            //if (AllExtras == null) { FetchExtras(); }
+            if (ExtrasTree == null) { FetchExtras(); }
+            return ExtrasTree.GetProductsOrdered();
+            //return (Product[])AllExtras.Clone();
         }
 
         public static ProductLinkedList GetListByIds(string ids, bool extras = false)
         {
 
+            if (ProductsTree == null || ExtrasTree == null) { FetchAllProducts(); }
+
             ProductLinkedList newList = new ProductLinkedList();
 
             if (ids == String.Empty) { return newList; }
 
-            Product[] current = (extras == false) ? AllProducts : AllExtras;
+            //Product[] current = (extras == false) ? AllProducts : AllExtras;
+            ProductTree current = (extras == false) ? ProductsTree : ExtrasTree;
             string[] arrayIds = ids.Split(',');
 
             for (int i = 0; i < arrayIds.Length; i++)
             {
-                int index = ProductSearch.Search(current, int.Parse(arrayIds[i]));
-                if (index != -1)
+                string[] prod_quant = arrayIds[i].Split('q'); // [0] -> Id do produto, [1] -> quantidade do produto
+
+                if (prod_quant.Length != 2) { continue; }
+
+                Product produto = current.GetProductById(int.Parse(prod_quant[0])); //ProductSearch.Search(current, int.Parse(arrayIds[i]));
+                if (produto != null)
                 {
-                    newList.AddLast(current[index]);
+                    produto.Quantidade = int.Parse(prod_quant[1]);
+                    newList.AddLast(produto);
                 }
             }
             return newList;
         }
+
     }
 
+    /*
     internal class ProductSearch
     {
         public static int Search(Product[] arr, int Id)
@@ -133,5 +154,5 @@ namespace WindowsFormsApp1.Classes
 
             return -1; // Elemento não encontrado
         }
-    }
+    } */
 }

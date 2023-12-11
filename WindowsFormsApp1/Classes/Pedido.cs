@@ -31,19 +31,12 @@ namespace WindowsFormsApp1.Classes
             this.HorarioCriacao = now.ToString("HH:mm");
         }
 
-        public static Pedido GetInstance(string emailSolicitante)
+        public Pedido(string emailSolicitante)
         {
-            Pedido jaExiste = OrderManager.GetPedidoByEmail(emailSolicitante);
-            if (jaExiste != null)
-            {
-                return jaExiste;
-            }
-            Pedido pedido = new Pedido();
-            pedido.EmailSolicitante = emailSolicitante;
+            this.EmailSolicitante = emailSolicitante;
             DateTime now = DateTime.Now;
-            pedido.DataCriacao = now.ToString("dd/MM/yyyy");
-            pedido.HorarioCriacao = now.ToString("HH:mm");
-            return pedido;
+            this.DataCriacao = now.ToString("dd/MM/yyyy");
+            this.HorarioCriacao = now.ToString("HH:mm");
         }
 
         public void SetProdutos(ProductLinkedList produtos)
@@ -59,11 +52,16 @@ namespace WindowsFormsApp1.Classes
         public string toString()
         {
             string result = String.Empty;
+
+            string productIds = (this.Produtos != null) ? this.Produtos.toStringOnlyId() : "";
+            string extrasIds = (this.Acompanhamentos != null) ? this.Acompanhamentos.toStringOnlyId() : "";
+
             result += $"EmailSolicitante={this.EmailSolicitante};" +
                       $"DataCriacao={this.DataCriacao};" +
                       $"HorarioCriacao={this.HorarioCriacao};" +
-                      $"Produtos={this.Produtos.toStringOnlyId()};" +
-                      $"Acompanhamentos={this.Acompanhamentos.toStringOnlyId()};";
+                      $"Produtos={productIds};" +
+                      $"Acompanhamentos={extrasIds};" +
+                      $"Status={this.Status};";
             return result;
         }
 

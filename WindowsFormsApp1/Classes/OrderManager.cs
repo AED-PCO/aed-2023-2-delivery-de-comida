@@ -27,6 +27,7 @@ namespace WindowsFormsApp1.Classes
 
             foreach (string line in allOrders)
             {
+                if (line == String.Empty) { continue; }
                 Pedido novoPedido = new Pedido();
                 novoPedido.FillByString(line);
                 AllOrders.AddLast(novoPedido);
@@ -37,6 +38,22 @@ namespace WindowsFormsApp1.Classes
         {
             if (AllOrders == null) { FetchOrders(); }
             return AllOrders.FindByEmail(email);
+        }
+
+        public static void AddOrderToList(Pedido novo)
+        {
+            if (AllOrders == null) { FetchOrders(); }
+
+            AllOrders.AddLast(novo);
+        }
+
+        public static void SaveAllOrders()
+        {
+            if (AllOrders == null || AllOrders.isEmpty()) { return; }
+            using (StreamWriter file_writer = new StreamWriter(file_path))
+            {
+                file_writer.WriteLine(AllOrders.toString());
+            }
         }
     }
 }

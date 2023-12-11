@@ -83,7 +83,7 @@ namespace WindowsFormsApp1
                 if (camposQuant[i].Value > 0)
                 {
                     quantidadeTotal += (int) camposQuant[i].Value;
-                    produtos[i].SetQuantidade((int)camposQuant[i].Value);
+                    produtos[i].Quantidade = (int)camposQuant[i].Value;
                     listaProdutos.AddLast(produtos[i]);
                 }
             }
@@ -94,11 +94,13 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            Pedido novoPedido = Pedido.GetInstance(UserManager.LoggedUserEmail);
+            Pedido novoPedido = new Pedido(UserManager.LoggedUserEmail);
             novoPedido.SetProdutos(listaProdutos);
 
-            //Form4 TelaAcompanhamentos = new Form4();
-            //TelaAcompanhamentos.ShowDialog();
+            OrderManager.AddOrderToList(novoPedido);
+
+            Form4 TelaAcompanhamentos = new Form4();
+            TelaAcompanhamentos.ShowDialog();
         }
 
         private void Form3_Load(object sender, EventArgs e)
