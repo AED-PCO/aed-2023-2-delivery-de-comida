@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
             Pedido novoPedido = new Pedido(UserManager.LoggedUserEmail);
             novoPedido.SetProdutos(listaProdutos);
 
-            OrderManager.AddOrderToList(novoPedido);
+           // OrderManager.AddOrderToList(novoPedido);
 
             Form4 TelaAcompanhamentos = new Form4();
             TelaAcompanhamentos.ShowDialog();
