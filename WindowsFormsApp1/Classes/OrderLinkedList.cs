@@ -5,37 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.Classes;
 
-internal class UserNode
+class OrderNode
 {
-    public User data;
-    public UserNode next;
-    public UserNode prev;
+    public Pedido data;
+    public OrderNode next;
+    public OrderNode prev;
 
-    public UserNode(User user)
+    public OrderNode(Pedido order)
     {
-        this.data = user;
+        this.data = order;
     }
 }
 
 namespace WindowsFormsApp1.Classes
 {
-    internal class UserLinkedList
+    internal class OrderLinkedList
     {
         private int count = 0;
-        private UserNode first = null;
-        private UserNode last = null;
-        public UserLinkedList() { }
+        private OrderNode first = null;
+        private OrderNode last = null;
+        public OrderLinkedList() { }
 
-        public void AddLast(User user)
+        public void AddLast(Pedido order)
         {
             if (isEmpty())
             {
-                first = new UserNode(user);
+                first = new OrderNode(order);
                 last = first;
             }
             else
             {
-                last.next = new UserNode(user);
+                last.next = new OrderNode(order);
                 last.next.prev = last;
                 last = last.next;
             }
@@ -43,16 +43,16 @@ namespace WindowsFormsApp1.Classes
             count++;
         }
 
-        public void AddFirst(User user)
+        public void AddFirst(Pedido order)
         {
             if (isEmpty())
             {
-                first = new UserNode(user);
+                first = new OrderNode(order);
                 last = first;
             }
             else
             {
-                UserNode newNode = new UserNode(user);
+                OrderNode newNode = new OrderNode(order);
                 first.prev = newNode;
                 newNode.next = first;
                 first = newNode;
@@ -61,17 +61,18 @@ namespace WindowsFormsApp1.Classes
             count++;
         }
 
-        public User RemoveFirst()
+        public Pedido RemoveFirst()
         {
             if (isEmpty()) { return null; }
 
-            User save = first.data;
+            Pedido save = first.data;
 
             if (count == 1)
             {
                 first = null;
                 last = null;
-            } else
+            }
+            else
             {
                 first = first.next;
                 first.prev = null;
@@ -82,12 +83,12 @@ namespace WindowsFormsApp1.Classes
             return save;
         }
 
-        public User RemoveLast()
+        public Pedido RemoveLast()
         {
             if (isEmpty()) { return null; }
 
-            User save = last.data;
-            
+            Pedido save = last.data;
+
             if (count == 1)
             {
                 first = null;
@@ -109,22 +110,22 @@ namespace WindowsFormsApp1.Classes
             return count == 0;
         }
 
-        public User GetLast()
+        public Pedido GetLast()
         {
             return last?.data;
         }
 
-        public User GetFirst()
+        public Pedido GetFirst()
         {
             return first?.data;
         }
 
-        public User FindByEmail(string Email)
+        public Pedido FindByEmail(string Email)
         {
-            UserNode current = first;
+            OrderNode current = first;
             while (current != null)
             {
-                if (current.data.Email == Email)
+                if (current.data.EmailSolicitante == Email)
                     return current.data;
                 current = current.next;
             }
@@ -134,7 +135,7 @@ namespace WindowsFormsApp1.Classes
         public string toString()
         {
             string result = String.Empty;
-            UserNode current = first;
+            OrderNode current = first;
             while (current != null)
             {
                 result += $"{current.data.toString()}\n";
