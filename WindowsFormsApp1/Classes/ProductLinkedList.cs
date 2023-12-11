@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp1.Classes;
@@ -24,6 +26,8 @@ namespace WindowsFormsApp1.Classes
         private Node first;
         private Node last;
         private int count;
+
+        private Node iterator;
 
         public bool IsEmpty()
         {
@@ -111,6 +115,22 @@ namespace WindowsFormsApp1.Classes
             count--;
 
             return removedProduct;
+        }
+
+        public Product GetNext()
+        {
+            if (IsEmpty())
+                return null;
+
+            if (this.iterator == null)
+            {
+                this.iterator = first;
+                return null;
+            }
+
+            Product save = this.iterator.Data;
+            this.iterator = this.iterator.Next;
+            return save;
         }
 
         public Product RemoveLast()
