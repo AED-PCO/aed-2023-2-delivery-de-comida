@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Carrinho.cs" />
+    <Compile Include="Classes\InsertionSort.cs" />
     <Compile Include="Classes\OrderLinkedList.cs" />
     <Compile Include="Classes\OrderManager.cs" />
     <Compile Include="Classes\Pedido.cs" />

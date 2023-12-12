@@ -52,6 +52,7 @@ namespace WindowsFormsApp1
             switch (result)
             {
                 case 0:
+                    Program.carrinho = new Carrinho(UserManager.LoggedUserEmail);
                     DialogResult DR = MessageBox.Show("Bem vindo/a!", "Sucesso!");
                     if (DR == DialogResult.OK)
                     {
