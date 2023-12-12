@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -56,7 +57,7 @@ namespace WindowsFormsApp1
         {
             Product[] produtos = ProductManager.GetAllExtras();
 
-            produtos = InsertionSort(produtos);
+            produtos = InsertionSort.Sort(produtos);
 
             Label[] camposNome = { nome1, nome2, nome3, nome4, nome5, nome6, nome7, nome8, nome9, nome10 };
             PictureBox[] camposFoto = { foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8, foto9, foto10 };
@@ -70,22 +71,25 @@ namespace WindowsFormsApp1
             }
         }
 
-        // implementando insertion sort
-        private Product[] InsertionSort(Product[] produtos)
+        private void button2_Click(object sender, EventArgs e)
         {
-            for(int i=1; i < produtos.Length; i++)
-            {
-                Product aux = produtos[i];
-                int j = i - 1;
+            NumericUpDown[] camposQuant = { qtd1, qtd2, qtd3, qtd4, qtd5, qtd6, qtd7, qtd8, qtd9, qtd10 };
 
-                while(j >= 0 && produtos[j].Preco > aux.Preco)
+            Product[] produtos = ProductManager.GetAllExtras();
+            produtos = InsertionSort.Sort(produtos);
+
+            ProductLinkedList listaProdutos = new ProductLinkedList();
+            for (int i = 0; i < produtos.Length; i++)
+            {
+                if (camposQuant[i].Value > 0)
                 {
-                    produtos[j + 1] = produtos[j];
-                    j = j - 1;
+                    produtos[i].Quantidade = (int)camposQuant[i].Value;
+                    listaProdutos.AddLast(produtos[i]);
                 }
-                produtos[j + 1] = aux;
             }
-            return produtos;
+            if(!listaProdutos.IsEmpty()) {
+                Program.carrinho.pedido.SetAcompanhamentos(listaProdutos);
+            }
         }
     }
 }
