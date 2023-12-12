@@ -53,10 +53,7 @@ namespace WindowsFormsApp1
                 produto = pedido.Produtos.GetNext();
             }
 
-
         }
-
-        
 
         private void preco(object sender, EventArgs e)
         {
