@@ -40,6 +40,10 @@ namespace WindowsFormsApp1.Classes
             return 0;
         }
 
+        public User FindByEmail(string email) {
+            return AllUsers.FindByEmail(email);
+        }
+
         public int Logout()
         {
             LoggedUserEmail = String.Empty;

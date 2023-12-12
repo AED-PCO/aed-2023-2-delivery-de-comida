@@ -117,6 +117,11 @@ namespace WindowsFormsApp1.Classes
             return removedProduct;
         }
 
+        public void Rewind()
+        {
+            this.iterator = first;
+        }
+
         public Product GetNext()
         {
             if (IsEmpty())

@@ -132,6 +132,28 @@ namespace WindowsFormsApp1.Classes
             return null;
         }
 
+        public void RemoveByEmail(string Email)
+        {
+            if (isEmpty() || Email == String.Empty) { return; }
+
+            OrderNode current = first;
+            while (current != null)
+            {
+                if (current.data.EmailSolicitante == Email)
+                {
+                    if (current.next != null)
+                        current.next.prev = current.prev;
+                    if (current.prev != null)
+                        current.prev.next = current.next;
+                    current.next = null;
+                    current.prev = null;
+                    count--;
+                    return;
+                }       
+                current = current.next;
+            }
+        }
+
         public string toString()
         {
             string result = String.Empty;

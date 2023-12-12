@@ -52,15 +52,7 @@ namespace WindowsFormsApp1
             switch (result)
             {
                 case 0:
-                    Program.carrinho = new Carrinho(UserManager.LoggedUserEmail);
-                    DialogResult DR = MessageBox.Show("Bem vindo/a!", "Sucesso!");
-                    if (DR == DialogResult.OK)
-                    {
-                        this.Hide();
-                        Form3 form3 = new Form3();
-                        form3.ShowDialog();
-                        this.Close();
-                    }
+                    this.ProcessLogin();
                     break;
                 case 1:
                     MessageBox.Show("Senha incorreta.", "Falha no login");
@@ -71,12 +63,44 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void ProcessLogin()
+        {
+            Program.carrinho = new Carrinho(UserManager.LoggedUserEmail);
+            Pedido PedidoExistente = OrderManager.GetPedidoByEmail(UserManager.LoggedUserEmail);
+            MessageBox.Show("Bem vindo/a!", "Sucesso!");
+
+            if (PedidoExistente != null)
+            {
+                if (PedidoExistente.Status == Pedido.StatusRecebido)
+                {
+                    OrderManager.DeletePedidoByEmail(UserManager.LoggedUserEmail);
+                }
+                else
+                {
+                    Program.carrinho.setPedido(PedidoExistente);
+                    this.Hide();
+                    Form6 form = new Form6();
+                    form.ShowDialog();
+                    this.Close();
+                    return;
+                }
+            }
+            this.Hide();
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+            this.Close();
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             CADASTRO telaCadastro = new CADASTRO();
             this.Hide();
             telaCadastro.ShowDialog();
             this.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.UseSystemPasswordChar = !checkBox1.Checked;
         }
     }
 }

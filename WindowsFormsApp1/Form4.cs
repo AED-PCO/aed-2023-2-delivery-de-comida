@@ -24,8 +24,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form3 TelaHamburgueres = new Form3();
-            TelaHamburgueres.ShowDialog();
+            this.Close();
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -87,9 +86,11 @@ namespace WindowsFormsApp1
                     listaProdutos.AddLast(produtos[i]);
                 }
             }
-            if(!listaProdutos.IsEmpty()) {
-                Program.carrinho.pedido.SetAcompanhamentos(listaProdutos);
-            }
+
+            Program.carrinho.pedido.SetAcompanhamentos(listaProdutos);
+
+            Form5 f5 = new Form5();
+            f5.ShowDialog();
         }
     }
 }

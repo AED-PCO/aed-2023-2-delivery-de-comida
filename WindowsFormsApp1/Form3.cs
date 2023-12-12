@@ -27,6 +27,7 @@ namespace WindowsFormsApp1
         private void PreencheCards()
         {
             Product[] produtos = ProductManager.GetAllProducts();
+            produtos = InsertionSort.Sort(produtos);
 
             Label[] camposNome = { nome1, nome2, nome3, nome4, nome5, nome6, nome7, nome8 };
             PictureBox[] camposFoto = { foto1, foto2, foto3, foto4, foto5, foto6, foto7, foto8 };
@@ -77,6 +78,8 @@ namespace WindowsFormsApp1
             int quantidadeTotal = 0;
 
             Product[] produtos = ProductManager.GetAllProducts();
+            produtos = InsertionSort.Sort(produtos);
+
             ProductLinkedList listaProdutos = new ProductLinkedList();
             for (int i = 0; i < produtos.Length; i++)
             {
@@ -98,8 +101,6 @@ namespace WindowsFormsApp1
             novoPedido.SetProdutos(listaProdutos);
 
             Program.carrinho.setPedido(novoPedido);
-
-           // OrderManager.AddOrderToList(novoPedido);
 
             Form4 TelaAcompanhamentos = new Form4();
             TelaAcompanhamentos.ShowDialog();

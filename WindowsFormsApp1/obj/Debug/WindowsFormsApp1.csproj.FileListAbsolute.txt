@@ -87,3 +87,6 @@ C:\Users\gabri\Source\Repos\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\D
 =======
 C:\Users\carol\trabalho aed\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form5.resources
 >>>>>>> 5d48b944a5e0f34bbfcd19934418a2a2c8f6c727
+C:\Users\João França\Desktop\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form5.resources
+C:\Users\João França\Desktop\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form6.resources
+C:\Users\João França\Desktop\aed-2023-2-delivery-de-comida\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormHandler.resources

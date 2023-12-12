@@ -566,6 +566,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form4";
             this.Text = "Form4";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

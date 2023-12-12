@@ -40,6 +40,13 @@ namespace WindowsFormsApp1.Classes
             return AllOrders.FindByEmail(email);
         }
 
+        public static void DeletePedidoByEmail(string email)
+        {
+            if (AllOrders == null) { FetchOrders(); }
+            if (AllOrders.isEmpty()) { return; }
+            AllOrders.RemoveByEmail(email);
+        }
+
         public static void AddOrderToList(Pedido novo)
         {
             if (AllOrders == null) { FetchOrders(); }
