@@ -57,9 +57,6 @@ namespace WindowsFormsApp1
 
 
 
-        private void Finalizar(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
