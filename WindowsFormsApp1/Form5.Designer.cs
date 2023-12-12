@@ -47,6 +47,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "FINALIZAR COMPRA";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Finalizar);
             // 
             // pictureBox2
             // 
@@ -82,6 +83,7 @@
             this.label2.Size = new System.Drawing.Size(48, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "$$";
+            this.label2.Validated += new System.EventHandler(this.valor);
             // 
             // listView1
             // 
