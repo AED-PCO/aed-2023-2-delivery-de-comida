@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
     internal static class Program
     {
         public static readonly string root_path = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;
-
+        public static Carrinho carrinho;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
