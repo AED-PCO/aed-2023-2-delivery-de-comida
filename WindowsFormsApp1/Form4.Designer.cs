@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.foto1 = new System.Windows.Forms.PictureBox();
@@ -73,7 +72,8 @@
             this.qtd8 = new System.Windows.Forms.NumericUpDown();
             this.qtd9 = new System.Windows.Forms.NumericUpDown();
             this.qtd10 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.foto1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto4)).BeginInit();
@@ -94,24 +94,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.qtd8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtd9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtd10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, -18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(981, 135);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(328, 93);
+            this.label1.Location = new System.Drawing.Point(289, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 33);
             this.label1.TabIndex = 18;
@@ -516,12 +508,31 @@
             this.qtd10.Size = new System.Drawing.Size(29, 20);
             this.qtd10.TabIndex = 61;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(171, -191);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(916, 330);
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, -125);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(197, 264);
+            this.pictureBox2.TabIndex = 63;
+            this.pictureBox2.TabStop = false;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(973, 651);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.qtd10);
             this.Controls.Add(this.qtd9);
             this.Controls.Add(this.qtd8);
@@ -564,12 +575,11 @@
             this.Controls.Add(this.foto2);
             this.Controls.Add(this.foto1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form4";
             this.Text = "Form4";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foto4)).EndInit();
@@ -590,14 +600,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.qtd8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtd9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtd10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox foto1;
@@ -641,5 +651,7 @@
         private System.Windows.Forms.NumericUpDown qtd8;
         private System.Windows.Forms.NumericUpDown qtd9;
         private System.Windows.Forms.NumericUpDown qtd10;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
